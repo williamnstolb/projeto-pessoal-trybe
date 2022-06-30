@@ -33,11 +33,12 @@ def scrape_next_page_link(html_content):
 # Requisito 4
 def scrape_noticia(html_content):
     selector = Selector(html_content)
+    news = dict()
     news = {
-        "url": selector.css("[rel=canonical]::attr(href)").get(),
+        "url": selector.css("link[rel=canonical]::attr(href)").get(),
         "title": selector.css(".entry-title::text").get(),
         "timestamp": selector.css(".meta-date::text").get(),
-        "writer": selector.css(".author::text").get(),
+        "writer": selector.css(".author a::text").get(),
         "comments_count": len(selector.css(".comment-content p").getall()),
         "summary": selector.xpath("string(//p)").get(),
         "tags": selector.css(".post-tags ul li a::text").getall(),
