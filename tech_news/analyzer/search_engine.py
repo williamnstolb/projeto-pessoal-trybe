@@ -1,6 +1,14 @@
+from tech_news.database import search_news
+from tech_news.database import format_tuple
+
+
 # Requisito 6
 def search_by_title(title):
-    """Seu código deve vir aqui"""
+    # Source: https://www.mongodb.com/docs/atlas
+    # /schema-suggestions/case-insensitive-regex/
+    news_list = list()
+    news_list = search_news({"title": {"$regex": title, "$options": "i"}})
+    return format_tuple(news_list)
 
 
 # Requisito 7
