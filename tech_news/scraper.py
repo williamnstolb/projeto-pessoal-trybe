@@ -19,7 +19,8 @@ def fetch(url):
 # Requisito 2
 def scrape_novidades(html_content):
     selector = Selector(html_content)
-    return selector.css(".entry-title a::attr(href)").getall()
+    location = ".entry-title a::attr(href)"
+    return selector.css(location).getall()
 
 
 # Requisito 3
