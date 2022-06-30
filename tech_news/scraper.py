@@ -26,7 +26,7 @@ def scrape_novidades(html_content):
 # Requisito 3
 def scrape_next_page_link(html_content):
     selector = Selector(html_content)
-    location = ".next a::attr(href)"
+    location = ".next.page-numbers::attr(href)"
     return selector.css(location).get()
 
 
