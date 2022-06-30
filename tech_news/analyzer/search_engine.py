@@ -17,7 +17,7 @@ def search_by_title(title):
 def search_by_date(date):
     # Source: https://www.programiz.com/python-programming/datetime/strptime
     news_list = list()
-    setlocale(LC_ALL, 'pt_BR')
+    setlocale(LC_ALL, 'pt_BR.UTF-8')
     try:
         new_format_date = datetime.strptime(
             date, "%Y-%m-%d").strftime("%-d de %B de %Y")
